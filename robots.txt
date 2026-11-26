@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jospark47-jpg.github.io/fabula-spark/sitemap.xml

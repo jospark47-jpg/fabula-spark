@@ -1,0 +1,15 @@
+# Fabula Spark
+
+> Fabula Spark is an educational brand that brings live science shows to schools. Experiments are told as stories, with fire, vapor, color and big reactions, for a whole school assembly.
+
+## Facts
+- Service available to book: live science shows, performed at your school or venue.
+- Co-founder: Mahmoud Abdelhafiz (محمود عبدالحفيظ).
+- Booking: WhatsApp +20 101 863 7476 (https://wa.me/201018637476) or the inquiry form on the website.
+- Other Spark experiences are announced as coming soon and are not bookable yet.
+- Pricing and dates are confirmed per school on request. No prices are published.
+
+## Pages
+- [Home, what we do, how booking works, FAQ](https://jospark47-jpg.github.io/fabula-spark/)
+- [About and co-founder](https://jospark47-jpg.github.io/fabula-spark/#team)
+- [Book a science show](https://jospark47-jpg.github.io/fabula-spark/#inquiry)
