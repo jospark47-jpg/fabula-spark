@@ -109,7 +109,7 @@ footer{padding:48px 0;color:var(--muted);font-size:14px;line-height:20px;display
 html{scroll-behavior:smooth}
 .prog{position:fixed;top:0;left:0;right:0;height:3px;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);z-index:30}
 .hero{position:relative}
-.beamwrap{position:absolute;top:0;left:50%;width:100vw;margin-left:-50vw;height:900px;overflow:hidden;pointer-events:none;z-index:0}
+html,body{overflow-x:clip}.beamwrap{position:absolute;top:0;left:50%;width:100vw;margin-left:-50vw;height:900px;overflow:hidden;pointer-events:none;z-index:0}
 .beam{position:absolute;top:40px;right:7vw;width:1500px;height:1000px;transform-origin:100% 0;background:conic-gradient(from 248deg at 100% 0%,transparent 0deg,rgba(255,183,3,.20) 9deg,rgba(255,183,3,.05) 15deg,transparent 22deg);animation:sweep 9s var(--ease) infinite alternate;opacity:.9}
 @keyframes sweep{from{transform:rotate(-9deg)}to{transform:rotate(11deg)}}
 .cursorlight{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(circle,rgba(255,183,3,.14) 0,rgba(255,183,3,.05) 40%,transparent 70%);pointer-events:none;z-index:2;opacity:0;transition:opacity 400ms var(--ease);will-change:transform}
@@ -148,7 +148,7 @@ html{scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){.beam,.float svg{animation:none!important}.cursorlight,#trail,.lamp{display:none}.dp-hidden{-webkit-mask-image:none;mask-image:none;position:relative}.dark-panel{min-height:0}.dp-base{position:relative;padding-bottom:0}.dp-hidden .words{position:relative;padding:32px 24px}}
 
 .st .he,.st .nav{animation:none!important}
-.wa{position:fixed;right:20px;bottom:20px;z-index:35;display:flex;align-items:center;gap:10px;background:var(--accent);color:#1a1200;font-weight:700;font-size:14px;line-height:20px;padding:12px 18px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:transform 300ms var(--pop)}
+.wa{position:fixed;right:20px;bottom:72px;z-index:35;display:flex;align-items:center;gap:10px;background:var(--accent);color:#1a1200;font-weight:700;font-size:14px;line-height:20px;padding:12px 18px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:transform 300ms var(--pop)}
 .wa:hover{transform:translateY(-3px) rotate(-2deg)}.wa:active{transform:scale(.97)}.wa svg{width:20px;height:20px}
 .form{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:48px}
 .form form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -162,13 +162,80 @@ html{scroll-behavior:smooth}
 .ctl{display:flex;flex-direction:column;gap:12px;margin-top:24px}.ctl a{color:var(--text);font-weight:600}.ctl span{color:var(--muted);font-size:14px;line-height:20px}
 @media(max-width:820px){.form{grid-template-columns:1fr;padding:28px}.form form{grid-template-columns:1fr}.wa span{display:none}.wa{padding:14px}}
 @media(prefers-reduced-motion:reduce){.wa:hover{transform:none}}
-</style>
+
+.menu a.act{color:var(--accent)}
+.st .beat{min-height:300px;opacity:1}.st .beats-vis{position:static}.st .beats{align-items:start}
+.vi img{position:absolute;inset:0;opacity:0;animation:cyc 20s linear infinite}
+.vi img:nth-child(1){animation-delay:-1s}.vi img:nth-child(2){animation-delay:4s}.vi img:nth-child(3){animation-delay:9s}.vi img:nth-child(4){animation-delay:14s}
+@keyframes cyc{0%{opacity:0;transform:scale(1.06)}4%{opacity:1}26%{opacity:1}31%{opacity:0;transform:scale(1)}100%{opacity:0}}
+.st .vi img{animation:none}.st .vi img:first-child{opacity:1}
+.beats{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.beats-vis{position:sticky;top:96px}
+.bimgs{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;background:var(--card);border:1px solid var(--line)}
+.bimgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.05);transition:opacity 700ms var(--ease),transform 1200ms var(--ease)}
+.bimgs img.on{opacity:1;transform:scale(1)}
+.bcap{font-size:13px;line-height:20px;color:var(--muted);margin-top:12px}
+.beat{min-height:62vh;display:flex;flex-direction:column;justify-content:center;opacity:.28;transition:opacity 500ms var(--ease)}
+.beat.on{opacity:1}.beat h3{font-size:34px;line-height:40px;margin-bottom:12px}.beat p{color:var(--muted)}
+.beat .num{color:var(--accent);font-weight:700;font-size:14px;margin-bottom:8px}
+.modes{flex-wrap:wrap}
+.lab .cwrap{position:relative;max-width:420px;width:100%;justify-self:center}
+.cwrap canvas{width:100%;height:auto;display:block}
+.beaker{position:absolute;left:0;top:6%;width:30%;aspect-ratio:1;background:none;border:0;cursor:grab;touch-action:none;color:var(--text);z-index:3;transition:transform 600ms var(--ease);filter:drop-shadow(0 8px 14px rgba(0,0,0,.45))}
+.beaker.drag{cursor:grabbing;transition:none}.beaker svg{width:100%;height:100%;display:block;transition:transform 300ms var(--ease);transform-origin:70% 20%}
+.beaker.pour svg{transform:rotate(-62deg)}
+.beaker:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:12px}
+.beakerhint{position:absolute;left:0;top:calc(6% + 31%);font-size:12px;line-height:16px;color:var(--muted);width:30%;text-align:center}
+.tempbox{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:48px}
+.tempbox canvas{width:100%;max-width:320px;height:auto;justify-self:center;display:block}
+.slider{width:100%;accent-color:var(--accent);margin:16px 0 8px}
+.tl{display:flex;justify-content:space-between;font-size:13px;line-height:20px;color:var(--muted)}
+.illo{display:inline-block;font-size:12px;line-height:16px;font-weight:700;color:#1a1200;background:var(--accent);border-radius:999px;padding:4px 10px;margin-bottom:16px}
+.ba{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:16/9;border:1px solid var(--line);background:var(--card);--p:50%;touch-action:pan-y;user-select:none}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .top{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.ba .line{position:absolute;top:0;bottom:0;left:var(--p);width:3px;margin-left:-1.5px;background:var(--accent);box-shadow:0 0 18px rgba(255,183,3,.7);pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:var(--p);width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:var(--accent);color:#1a1200;display:grid;place-items:center;font-weight:800;pointer-events:none;box-shadow:0 6px 18px rgba(0,0,0,.5)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba input:focus-visible+.line{outline:2px solid var(--text)}
+.ba .tag1,.ba .tag2{position:absolute;bottom:14px;font-size:13px;line-height:20px;font-weight:700;background:rgba(10,10,10,.7);padding:4px 12px;border-radius:999px;pointer-events:none}
+.ba .tag1{left:14px}.ba .tag2{right:14px}
+.carousel .gwrap{cursor:zoom-in;flex:0 0 min(78vw,420px)}
+dialog#lb{border:0;background:rgba(0,0,0,.92);color:var(--text);width:100vw;height:100vh;max-width:none;max-height:none;padding:0}
+dialog#lb::backdrop{background:rgba(0,0,0,.9)}
+#lb .in{display:grid;place-items:center;height:100%;padding:56px 16px}
+#lb img{max-width:min(1100px,100%);max-height:100%;border-radius:12px;object-fit:contain}
+#lb button{position:absolute;background:rgba(251,239,223,.12);color:var(--text);border:0;border-radius:999px;width:48px;height:48px;font:700 20px Manrope;cursor:pointer}
+#lb button:hover{background:var(--accent);color:#1a1200}
+#lb .x{top:16px;right:16px}#lb .pv{left:16px;top:50%}#lb .nx{right:16px;top:50%}
+#lb p{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:14px;color:var(--muted)}
+.wiz{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:48px}
+.dots{display:flex;gap:8px;margin:24px 0}.dots i{height:4px;flex:1;border-radius:2px;background:var(--line);transition:background 400ms var(--ease)}.dots i.on{background:var(--accent)}
+fieldset.st{border:0;display:none;gap:16px;flex-direction:column;min-width:0}fieldset.st.on{display:flex;animation:stin 500ms var(--ease) both}
+@keyframes stin{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+legend{font-size:20px;line-height:28px;font-weight:600;margin-bottom:16px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{position:relative}.opts input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.opts span{display:block;padding:10px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;line-height:20px;color:var(--muted);transition:all 300ms var(--ease)}
+.opts input:checked+span{background:var(--accent);color:#1a1200;border-color:var(--accent);font-weight:700}
+.opts input:focus-visible+span{outline:2px solid var(--text);outline-offset:2px}
+.opts input:hover+span{border-color:var(--accent)}
+.wnav{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.pvb{background:#0f2e22;border-radius:14px 14px 14px 4px;padding:14px 16px;font-size:14px;line-height:20px;white-space:pre-wrap;color:#e9f5ee;border:1px solid #1f4a38;max-height:220px;overflow:auto}
+.pvl{font-size:13px;line-height:20px;color:var(--muted);margin:8px 0}
+.fld input[type=date]{color-scheme:dark}
+@media(max-width:820px){.beats{grid-template-columns:1fr;gap:0}.beats-vis{top:72px;z-index:5;background:var(--bg);padding:8px 0}.beat{min-height:44vh}.beat h3{font-size:26px;line-height:32px}.tempbox,.wiz{grid-template-columns:1fr;padding:28px}.carousel .gwrap{flex-basis:80vw}.lab .cwrap{max-width:320px}}
+@media(prefers-reduced-motion:reduce){.vi img{animation:none}.vi img:first-child{opacity:1}.bimgs img,.beat{transition:none}fieldset.st.on{animation:none}.beaker,.beaker svg{transition:none}}
+.scr{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:center}.scrimgs{aspect-ratio:16/9}.scrctl{padding:8px 0}.scrctl .hint{margin-top:16px;min-height:3.2em}
+.yard{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.yard figure{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4}.yard img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:820px){.scr{grid-template-columns:1fr}.yard{grid-template-columns:repeat(3,72vw);overflow-x:auto;scroll-snap-type:x mandatory;gap:12px}.yard figure{scroll-snap-align:center}}
+.st .scr .bimgs img{transition:none}</style>
 </head>
 <body>
 <div class="prog" id="prog"></div>
 <div class="cursorlight" id="cl"></div>
 <canvas id="trail"></canvas>
-<nav class="nav"><a href="#"><img src="wordmark.png" alt="Fabula Spark"></a><div class="menu"><a href="#what">What we do</a><a href="#lab">Lab</a><a href="#how">How it works</a><a href="#shop">Shop</a><a href="#faq">FAQ</a></div><a class="btn mag" href="#inquiry">Book a show</a></nav>
+<nav class="nav"><a href="#"><img src="wordmark.png" alt="Fabula Spark"></a><div class="menu"><a href="#beats">The show</a><a href="#lab">Lab</a><a href="#gallery">Moments</a><a href="#shop">Shop</a><a href="#faq">FAQ</a></div><a class="btn mag" href="#inquiry">Book a show</a></nav>
 <a class="wa" id="wa" href="https://wa.me/201018637476?text=Hello%20Fabula%20Spark%2C%20I%20have%20a%20question." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg><span>Chat on WhatsApp</span></a>
 <div class="wrap">
 <header class="hero" id="hero">
@@ -181,7 +248,7 @@ html{scroll-behavior:smooth}
   <div class="cta he" style="--d:500ms"><a class="btn mag" href="#inquiry">Book a science show</a><a class="btn ghost mag" href="#lab">Try the lab</a></div>
   <p class="proof he" style="--d:650ms">Performed at SCLS and other national schools.</p>
  </div>
- <div class="visual he tilt" style="--d:300ms" data-tilt><img class="flaskfloat" src="flask.png" alt="" style="height:auto"><div class="vi"><img src="h1.jpg" alt="A column of vapor rising on stage during a Fabula Spark science show"></div></div>
+ <div class="visual he tilt" style="--d:300ms" data-tilt><img class="flaskfloat" src="flask.png" alt="" style="height:auto"><div class="vi"><img src="h1.jpg" alt="A column of vapor rising on stage during a Fabula Spark science show"><img src="g3.jpg" alt="A presenter and two students at an experiment table on stage" loading="lazy"><img src="g9.jpg" alt="A burst of fire during a stage experiment" loading="lazy"><img src="g2.jpg" alt="Presenters and students under a balloon arch on a school stage" loading="lazy"></div></div>
 </header>
 </div>
 
@@ -195,18 +262,67 @@ html{scroll-behavior:smooth}
  <div class="glance rv"><div><b>Format</b><span>Live stage show</span></div><div><b>Where</b><span>At your school or venue</span></div><div><b>Audience</b><span>A whole assembly</span></div><div><b>Ages</b><span>Tailored to your group</span></div></div>
 </div></section>
 
+<section id="beats" style="padding-top:0"><div class="wrap">
+ <p class="eyebrow rv">One show, five beats</p>
+ <h2 class="rv" style="--d:60ms">From empty stage to full reaction</h2>
+ <p class="lead rv" style="--d:100ms">Scroll through a Fabula Spark show. The photos are from our real stage shows.</p>
+ <div class="beats">
+  <div class="beats-vis"><div class="bimgs" id="bimgs">
+   <img class="on" src="g1.jpg" alt="A wide school stage with an experiment table and a balloon arch" loading="lazy">
+   <img src="g6.jpg" alt="A projected flask animation explaining gas particles" loading="lazy">
+   <img src="k16.jpg" alt="Two students in lab coats and a presenter under a balloon arch" loading="lazy">
+   <img src="g9.jpg" alt="A burst of fire during a stage experiment" loading="lazy">
+   <img src="g7.jpg" alt="A full school hall watching a presenter" loading="lazy">
+  </div><p class="bcap" id="bcap">Photo from one of our stage shows.</p></div>
+  <div class="beats-txt">
+   <div class="beat on" data-b="0"><p class="num">Beat 1</p><h3>Set the stage</h3><p>We bring the experiment table and turn your hall into a lab.</p></div>
+   <div class="beat" data-b="1"><p class="num">Beat 2</p><h3>Ask the big question</h3><p>Every experiment starts with a why. A story and a big screen show what is happening inside.</p></div>
+   <div class="beat" data-b="2"><p class="num">Beat 3</p><h3>Invite students up</h3><p>Students join us on stage and help run the experiment.</p></div>
+   <div class="beat" data-b="3"><p class="num">Beat 4</p><h3>Make it happen</h3><p>Fire, vapor, foam and color. Big reactions that the whole hall can see.</p></div>
+   <div class="beat" data-b="4"><p class="num">Beat 5</p><h3>Watch the room</h3><p>A hall full of curious students, still talking about it afterwards.</p></div>
+  </div>
+ </div>
+</div></section>
+
 <section id="lab" style="padding-top:0"><div class="wrap">
  <p class="eyebrow rv">The Spark lab</p>
  <h2 class="rv" style="--d:60ms">Make it fizz</h2>
- <p class="lead rv" style="--d:100ms">A tiny taste of the show. Pick a reaction, then tap the flask.</p>
+ <p class="lead rv" style="--d:100ms">A tiny taste of the show. Pick a reaction, then tap the flask, or drag the beaker over it and pour.</p>
  <div class="lab rv" style="--d:120ms">
   <div>
-   <div class="modes" role="group" aria-label="Choose a reaction"><button class="chip" data-m="fizz" aria-pressed="true">Fizz</button><button class="chip" data-m="foam" aria-pressed="false">Foam</button><button class="chip" data-m="spark" aria-pressed="false">Spark</button></div>
+   <div class="modes" role="group" aria-label="Choose a reaction"><button class="chip" data-m="fizz" aria-pressed="true">Fizz</button><button class="chip" data-m="foam" aria-pressed="false">Foam</button><button class="chip" data-m="spark" aria-pressed="false">Spark</button><button class="chip" data-m="vapor" aria-pressed="false">Vapor</button></div>
    <h3 style="font-size:30px;line-height:36px;margin-bottom:16px">Every show starts with a little reaction.</h3>
    <p class="lead" style="margin-bottom:24px">In the room it is bigger, louder and a lot more fun. This one is just a taste, no mess.</p>
-   <p class="hint" id="labhint">Tap the flask. Try all three.</p>
+   <p class="hint" id="labhint">Tap the flask or pour the beaker. Try all four.</p>
   </div>
-  <canvas id="labc" width="800" height="1040" aria-label="Interactive flask. Tap to make it react."></canvas>
+  <div class="cwrap" id="cwrap"><canvas id="labc" width="800" height="1040" aria-label="Interactive flask. Tap to make it react."></canvas>
+   <button class="beaker" id="bk" aria-label="Beaker. Drag it over the flask to pour, or press Enter to pour"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"><path d="M22 14 H78 M26 14 V78 Q26 90 38 90 H62 Q74 90 74 78 V14" /><path d="M28 56 H72 V78 Q72 87 62 87 H38 Q28 87 28 78 Z" fill="#ffb703" stroke="none"/></svg></button>
+   <p class="beakerhint" id="bkh">Drag me</p></div>
+ </div>
+</div></section>
+
+<section id="screen" style="padding-top:0"><div class="wrap">
+ <p class="eyebrow rv">On the big screen</p>
+ <h2 class="rv" style="--d:60ms">How we explain it to the hall</h2>
+ <p class="lead rv" style="--d:100ms">A slide from one of our real shows. Step through it.</p>
+ <div class="scr rv" style="--d:120ms">
+  <div class="bimgs scrimgs" id="scri"><img class=on src="k41.jpg" alt="The flask on the big screen, filled with moving particles." loading="lazy"><img src="k44.jpg" alt="A closer look at the same flask slide." loading="lazy"><img src="k46.jpg" alt="Next, a balloon on the flask, with arrows around it." loading="lazy"><img src="k47.jpg" alt="The slide stays up while the presenter explains." loading="lazy"></div>
+  <div class="scrctl"><input class="slider" id="scrs" type="range" min="0" max="3" step="1" value="0" aria-label="Step through the slide from the show"><p class="hint" id="scrc" aria-live="polite" data-caps="The flask on the big screen, filled with moving particles.|A closer look at the same flask slide.|Next, a balloon on the flask, with arrows around it.|The slide stays up while the presenter explains.">The flask on the big screen, filled with moving particles.</p><p class="note" style="padding:0;margin-top:6px">Frames from a video of one of our stage shows.</p></div>
+ </div>
+</div></section>
+
+<section id="temp" style="padding-top:0"><div class="wrap">
+ <div class="tempbox rv">
+  <div>
+   <span class="illo">Illustration</span>
+   <h2>What happens inside the flask</h2>
+   <p class="lead" style="margin-bottom:8px">Everything is made of tiny moving particles. Slide the temperature and watch them change.</p>
+   <input class="slider" id="tmps" type="range" min="0" max="100" value="20" aria-label="Temperature, from cold to hot">
+   <div class="tl"><span>Cold</span><span>Hot</span></div>
+   <p class="hint" id="tmpl" aria-live="polite" style="margin-top:16px">Cold. Particles drift slowly.</p>
+   <p class="note" style="margin-top:12px;padding:0">Our own simple drawing, inspired by the flask slide above.</p>
+  </div>
+  <canvas id="tmpc" width="560" height="728" role="img" aria-label="Particles moving inside a flask, faster when the temperature is higher"></canvas>
  </div>
 </div></section>
 
@@ -228,6 +344,13 @@ html{scroll-behavior:smooth}
  <p class="note rv">Teacher learning, teen awareness and a parent corner are warming up too. Shh, on the way.</p>
 </div></section>
 
+<section style="padding-top:0"><div class="wrap">
+ <p class="eyebrow rv">Quiet and loud</p>
+ <h2 class="rv" style="--d:60ms">Before the bang, after the bang</h2>
+ <p class="lead rv" style="--d:100ms">Two moments from our shows. Drag the line.</p>
+ <div class="ba rv" id="ba" style="--d:120ms"><img src="h5.jpg" alt="A calm experiment table with foam and flasks on stage" loading="lazy"><img class="top" src="k60.jpg" alt="Two presenters on stage as a burst of fire rises from the table" loading="lazy"><input type="range" min="0" max="100" value="50" id="bai" aria-label="Reveal slider between a calm table and a big reaction"><div class="line"></div><div class="knob" aria-hidden="true">&#8596;</div><span class="tag1">The reaction</span><span class="tag2">The table</span></div>
+</div></section>
+
 <section id="how" style="padding-top:0"><div class="wrap">
  <h2 class="rv">How booking works</h2>
  <p class="lead rv" style="--d:80ms">Three steps from first message to show day.</p>
@@ -239,21 +362,21 @@ html{scroll-behavior:smooth}
  </div>
 </div></section>
 
-<section style="padding-top:0"><div class="wrap">
+<section id="gallery" style="padding-top:0"><div class="wrap">
  <h2 class="rv">Moments from our shows</h2>
- <p class="lead rv" style="--d:80ms">Live experiments in front of a full school assembly. Drag to browse.</p>
- <div class="carousel rv" id="car">
-  <div class="gwrap"><img class="gimg" src="h1.jpg" alt="Vapor column erupting on stage" loading="lazy"></div>
-  <div class="gwrap"><img class="gimg" src="h3.jpg" alt="Fire on stage during an experiment" loading="lazy"></div>
-  <div class="gwrap"><img class="gimg" src="h2.jpg" alt="A full school hall watching a show" loading="lazy"></div>
-  <div class="gwrap"><img class="gimg" src="h4.jpg" alt="Projected flask animation explaining gas particles" loading="lazy"></div>
-  <div class="gwrap"><img class="gimg" src="h5.jpg" alt="Experiment table with foam and flasks on stage" loading="lazy"></div>
-  <div class="gwrap"><img class="gimg" src="poster3.jpg" alt="Fabula Spark card reading Curiosity is the spark" loading="lazy"></div>
- </div>
+ <p class="lead rv" style="--d:80ms">Real photos from school stage shows. Drag to browse, tap a photo to see it larger.</p>
+ <div class="carousel rv" id="car"><div class="gwrap"><img class="gimg" src="g1.jpg" alt="A wide school stage with an experiment table and a balloon arch" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="g2.jpg" alt="Presenters and students under a balloon arch on a school stage" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="g3.jpg" alt="A presenter and two students at an experiment table" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="g4.jpg" alt="A presenter pouring a liquid while two students watch" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="g5.jpg" alt="Two presenters at a long experiment table" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="g6.jpg" alt="A projected flask animation explaining gas particles" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="g7.jpg" alt="A full school hall watching a presenter" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="g8.jpg" alt="A tall column of vapor on stage with a balloon arch" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="g9.jpg" alt="A burst of fire during a stage experiment" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="g10.jpg" alt="Presenters and students on a decorated stage" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="g11.jpg" alt="A presenter drinking from a cup with students beside him" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="g12.jpg" alt="Two presenters running an experiment on a small table" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="h2.jpg" alt="A full school hall watching a show" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="h5.jpg" alt="An experiment table with foam and flasks on stage" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="k16.jpg" alt="Two students in lab coats and a presenter under a balloon arch" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="k41.jpg" alt="The flask slide on the big screen during a show" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="k46.jpg" alt="The big screen shows a balloon on the flask with arrows" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="k50.jpg" alt="A school hall full of students watching the presenter" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="k60.jpg" alt="Two presenters on stage as a burst of fire rises from the table" loading="lazy" tabindex="0"></div><div class="gwrap"><img class="gimg" src="y12.jpg" alt="A school yard with experiment tables and students lined up behind" loading="lazy" tabindex="0"></div></div>
+</div></section>
+
+<section id="yard" style="padding-top:0"><div class="wrap">
+ <p class="eyebrow rv">Beyond the stage</p>
+ <h2 class="rv" style="--d:60ms">Sometimes the school yard is the stage</h2>
+ <p class="lead rv" style="--d:100ms">Frames from a phone video of a school yard session.</p>
+ <div class="yard rv" style="--d:120ms"><figure><img src="y12.jpg" alt="Students lined up behind experiment tables in a school yard" loading="lazy"></figure><figure><img src="y44.jpg" alt="Experiment tables in front of a school building" loading="lazy"></figure><figure><img src="y56.jpg" alt="Tables and the ground after a colorful reaction" loading="lazy"></figure></div>
 </div></section>
 
 <section style="padding-top:0"><div class="wrap vid">
- <video class="rv" controls preload="metadata" poster="h2.jpg" playsinline><source src="stage.mp4" type="video/mp4"></video>
+ <video class="rv" controls preload="metadata" poster="g7.jpg" playsinline><source src="stage.mp4" type="video/mp4"></video>
  <div class="rv" style="--d:120ms"><h2>Big stage, big reactions</h2><p class="lead" style="margin-bottom:24px">Fire, vapor and a hall full of students, from one of our stage shows.</p><a class="btn mag" href="#contact">Book a science show</a></div>
 </div></section>
 
@@ -280,7 +403,7 @@ html{scroll-behavior:smooth}
 
 <section id="faq" style="padding-top:0"><div class="wrap" style="max-width:760px">
  <h2 class="rv">Questions schools ask</h2>
- <p class="lead rv" style="--d:80ms">Placeholder answers. To be confirmed.</p>
+ <p class="lead rv" style="--d:80ms">Short answers. Ask us anything else on WhatsApp.</p>
  <details class="rv"><summary>Which ages do you work with?</summary><p>Tell us your group and we shape the show to fit it.</p></details>
  <details class="rv"><summary>Where do the shows take place?</summary><p>We bring the show to you. Tell us your location and we will confirm.</p></details>
  <details class="rv"><summary>Can the show include a story?</summary><p>Yes. We wrap experiments in a story that explains how the discovery happened.</p></details>
@@ -291,20 +414,31 @@ html{scroll-behavior:smooth}
 
 
 <section id="inquiry" style="padding-top:0"><div class="wrap">
- <div class="form rv">
+ <div class="wiz rv">
   <div>
-   <p class="eyebrow">Get in touch</p>
+   <p class="eyebrow">Plan your show</p>
    <h2>Tell us what you need</h2>
-   <p class="lead" style="margin-bottom:0">Book a show, ask a question or ask about the shop. We reply on WhatsApp.</p>
-   <div class="ctl"><a href="https://wa.me/201018637476" target="_blank" rel="noopener">WhatsApp +20 101 863 7476</a><span>Your message opens in WhatsApp, ready to send. No account needed.</span></div>
+   <p class="lead" style="margin-bottom:0">Four quick steps. Your answers become a WhatsApp message to us, ready to send.</p>
+   <div class="dots" id="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+   <p class="pvl">Your message so far</p>
+   <div class="pvb" id="pv" aria-live="polite"></div>
+   <div class="ctl"><a href="https://wa.me/201018637476" target="_blank" rel="noopener">WhatsApp +20 101 863 7476</a><span>The message opens in WhatsApp for you to send. We do not store anything on this page.</span></div>
   </div>
-  <form id="inq" novalidate>
-   <div class="fld"><label for="f1">Your name</label><input id="f1" name="name" autocomplete="name" required></div>
-   <div class="fld"><label for="f2">I am a</label><select id="f2" name="role"><option>School or teacher</option><option>Parent</option><option>Other</option></select></div>
-   <div class="fld"><label for="f3">What do you need</label><select id="f3" name="topic"><option>Book a science show</option><option>Ask a question</option><option>Shop request</option><option>Something else</option></select></div>
-   <div class="fld"><label for="f4">School or organization (optional)</label><input id="f4" name="school" autocomplete="organization"></div>
-   <div class="fld full"><label for="f5">Message</label><textarea id="f5" name="msg" required placeholder="Age group, audience size, preferred dates, or what you would like to order"></textarea></div>
-   <div class="fld full"><button class="btn mag" type="submit" style="border:0;font-family:inherit;cursor:pointer">Send on WhatsApp</button></div>
+  <form id="wz" novalidate>
+   <fieldset class="st on" data-s="1"><legend>Who is asking?</legend>
+    <div class="fld"><label for="w1">Your name</label><input id="w1" autocomplete="name" required></div>
+    <div class="fld"><label>I am a</label><div class="opts"><label><input type="radio" name="role" value="School or teacher" checked><span>School or teacher</span></label><label><input type="radio" name="role" value="Parent"><span>Parent</span></label><label><input type="radio" name="role" value="Other"><span>Other</span></label></div></div></fieldset>
+   <fieldset class="st" data-s="2"><legend>What do you need?</legend>
+    <div class="opts"><label><input type="radio" name="topic" value="Book a science show" checked><span>Book a science show</span></label><label><input type="radio" name="topic" value="Ask a question"><span>Ask a question</span></label><label><input type="radio" name="topic" value="Shop request"><span>Shop request</span></label><label><input type="radio" name="topic" value="Something else"><span>Something else</span></label></div>
+    <div class="fld"><label for="w2">School or organization (optional)</label><input id="w2" autocomplete="organization"></div></fieldset>
+   <fieldset class="st" data-s="3"><legend>About the audience</legend>
+    <div class="fld"><label>Age group</label><div class="opts"><label><input type="radio" name="age" value="Kindergarten" checked><span>Kindergarten</span></label><label><input type="radio" name="age" value="Primary"><span>Primary</span></label><label><input type="radio" name="age" value="Preparatory"><span>Preparatory</span></label><label><input type="radio" name="age" value="Secondary"><span>Secondary</span></label><label><input type="radio" name="age" value="Mixed"><span>Mixed</span></label></div></div>
+    <div class="fld"><label for="w3">How many students</label><select id="w3"><option>Not sure yet</option><option>Under 50</option><option>50 to 150</option><option>150 to 400</option><option>Over 400</option></select></div>
+    <div class="fld"><label for="w4">Preferred date (optional)</label><input id="w4" type="date"></div></fieldset>
+   <fieldset class="st" data-s="4"><legend>Anything else?</legend>
+    <div class="fld"><label for="w5">Message (optional)</label><textarea id="w5" placeholder="Topics you care about, the venue, questions"></textarea></div></fieldset>
+   <div class="wnav"><button class="btn ghost" type="button" id="wb" style="font-family:inherit;cursor:pointer;display:none">Back</button><button class="btn mag" type="button" id="wn" style="border:0;font-family:inherit;cursor:pointer">Next</button><button class="btn mag" type="submit" id="ws" style="border:0;font-family:inherit;cursor:pointer;display:none">Send on WhatsApp</button><button class="btn ghost" type="button" id="wc" style="font-family:inherit;cursor:pointer;display:none">Copy message</button></div>
+   <p class="pvl" id="wst" aria-live="polite"></p>
   </form>
  </div>
 </div></section>
@@ -316,11 +450,12 @@ html{scroll-behavior:smooth}
  </div>
  <footer><img src="wordmark.png" alt="Fabula Spark" style="height:48px;width:auto"><a href="https://wa.me/201018637476" target="_blank" rel="noopener">WhatsApp +20 101 863 7476</a></footer>
 </div></section>
+<dialog id="lb" aria-label="Photo viewer"><div class="in"><img id="lbi" alt=""></div><button class="x" aria-label="Close">&#10005;</button><button class="pv" aria-label="Previous photo">&#8592;</button><button class="nx" aria-label="Next photo">&#8594;</button><p id="lbc"></p></dialog>
 <script>
 (function(){
 var d=document.documentElement;d.classList.add('js');
 var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
-var stat=location.search.indexOf('static')>-1;
+var stat=location.search.indexOf('static')>-1;if(stat)d.classList.add('st');
 var fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
 var raf=window.requestAnimationFrame.bind(window);
 function $(s,r){return (r||document).querySelector(s)}function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
@@ -378,13 +513,14 @@ if(car&&fine){var down=false,sx=0,sl=0;car.addEventListener('pointerdown',functi
 /* lab */
 var lc=$('#labc');
 if(lc){
- var c=lc.getContext('2d'),W=800,H=1040,mode='fizz',B=[],S=[],F=[],level=620,target=620,tt=0,labVis=false;
+ var c=lc.getContext('2d'),W=800,H=1040,mode='fizz',B=[],S=[],F=[],V=[],level=620,target=620,tt=0,labVis=false;
  var flask=new Path2D('M320 80 H480 V400 L680 840 Q700 920 620 920 H180 Q100 920 120 840 L320 400 Z');
  function rnd(a,b){return a+Math.random()*(b-a)}
  function bubble(){B.push({x:rnd(230,570),y:rnd(level+40,900),r:rnd(5,16),v:rnd(1.2,3),w:rnd(0,6.28)})}
  function burst(){
   if(mode==='fizz'){for(var i=0;i<26;i++)bubble();target=420;setTimeout(function(){target=620},1400)}
   else if(mode==='foam'){for(var i=0;i<46;i++)F.push({x:400+rnd(-40,40),y:90+rnd(0,30),vx:rnd(-3,3),vy:rnd(-9,-3),r:rnd(14,34),l:1,d:i*2});target=480;setTimeout(function(){target=620},1800)}
+  else if(mode==='vapor'){for(var i=0;i<34;i++)V.push({x:400+rnd(-26,26),y:90,vx:rnd(-1.4,1.4),vy:rnd(-5.5,-2),r:rnd(22,44),l:1,d:i*2})}
   else{for(var i=0;i<60;i++){var a=rnd(-2.6,-.55),v=rnd(8,20);S.push({x:400,y:80,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1,r:rnd(3,8),s:Math.random()<.35})}}
  }
  function star(x,y,r){c.beginPath();for(var i=0;i<8;i++){var a=i*Math.PI/4-Math.PI/2,rr=i%2?r*.35:r;c.lineTo(x+Math.cos(a)*rr,y+Math.sin(a)*rr)}c.closePath();c.fill()}
@@ -402,27 +538,87 @@ if(lc){
   c.fillStyle='#fbefdf';c.font='700 120px Manrope,sans-serif';c.textAlign='center';c.fillStyle='rgba(10,10,10,.75)';c.fillText('FS',400,780);
   /* foam */
   for(var i=F.length-1;i>=0;i--){var f=F[i];if(f.d>0){f.d--;continue}f.x+=f.vx;f.y+=f.vy;f.vy+=.35;f.l-=.008;if(f.l<=0||f.y>H){F.splice(i,1);continue}c.globalAlpha=Math.min(1,f.l*1.5);c.fillStyle=i%2?'#fbefdf':'#ffd36a';c.beginPath();c.arc(f.x,f.y,f.r,0,6.283);c.fill()}
+  /* vapor */
+  for(var i=V.length-1;i>=0;i--){var p=V[i];if(p.d>0){p.d--;continue}p.x+=p.vx;p.y+=p.vy;p.vy*=.985;p.r+=.7;p.l-=.0065;if(p.l<=0){V.splice(i,1);continue}var gg=c.createRadialGradient(p.x,p.y,2,p.x,p.y,p.r);gg.addColorStop(0,'rgba(251,239,223,'+(p.l*.5)+')');gg.addColorStop(1,'rgba(251,239,223,0)');c.fillStyle=gg;c.beginPath();c.arc(p.x,p.y,p.r,0,6.283);c.fill()}
   /* sparks */
   for(var i=S.length-1;i>=0;i--){var s=S[i];s.x+=s.vx;s.y+=s.vy;s.vy+=.5;s.l-=.016;if(s.l<=0){S.splice(i,1);continue}c.globalAlpha=s.l;c.fillStyle='#ffb703';if(s.s)star(s.x,s.y,s.r*3);else{c.beginPath();c.arc(s.x,s.y,s.r,0,6.283);c.fill()}}
   c.globalAlpha=1;
   if(Math.random()<.12&&B.length<14)bubble();
  }
- function frame(){if(!labVis)return;draw();raf(frame)}
+ window.__burst=function(){burst()};function frame(){if(!labVis)return;draw();raf(frame)}
  if(rm||stat){draw();for(var k=0;k<10;k++)bubble();draw();lc.addEventListener('click',function(){draw()})}
  else{new IntersectionObserver(function(es){labVis=es[0].isIntersecting;if(labVis)raf(frame)}).observe(lc);lc.addEventListener('pointerdown',function(e){burst();if(navigator.vibrate)navigator.vibrate(12)})}
- $$('.chip').forEach(function(b){b.addEventListener('click',function(){mode=b.dataset.m;$$('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});var hn={fizz:'Bubbles on the way up.',foam:'Foam everywhere. Stand back.',spark:'Sparks, straight from the neck.'};$('#labhint').textContent=hn[mode];if(!rm&&!stat)burst()})});
+ $$('.chip').forEach(function(b){b.addEventListener('click',function(){mode=b.dataset.m;$$('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});var hn={vapor:'A cloud of vapor, rising slowly.',fizz:'Bubbles on the way up.',foam:'Foam everywhere. Stand back.',spark:'Sparks, straight from the neck.'};$('#labhint').textContent=hn[mode];if(!rm&&!stat)burst()})});
 }
 
-/* inquiry form to WhatsApp */
-var fm=$('#inq');
-if(fm){fm.addEventListener('submit',function(e){e.preventDefault();var ok=true;['f1','f5'].forEach(function(id){var el=$('#'+id),w=el.parentNode;if(!el.value.trim()){w.classList.add('err');ok=false}else w.classList.remove('err')});if(!ok)return;
- var g=function(id){return $('#'+id).value.trim()};
- var t='Hello Fabula Spark.\nName: '+g('f1')+'\nI am a: '+g('f2')+'\nNeed: '+g('f3')+(g('f4')?'\nSchool: '+g('f4'):'')+'\nMessage: '+g('f5');
- window.open('https://wa.me/201018637476?text='+encodeURIComponent(t),'_blank','noopener')})}
+
+/* beats */
+var beats=$$('.beat'),bi=$$('#bimgs img'),bcap=$('#bcap');
+var bcaps=['Photo from one of our stage shows.','A frame from the flask animation we project during shows.','Students joining a presenter at the experiment table.','A moment from a live experiment with fire.','A full hall during one of our shows.'];
+function setBeat(i){beats.forEach(function(b,k){b.classList.toggle('on',k===i)});bi.forEach(function(m,k){m.classList.toggle('on',k===i)});if(bcap)bcap.textContent=bcaps[i]}
+if(beats.length){if('IntersectionObserver' in window){var bo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setBeat(+e.target.dataset.b)})},{rootMargin:'-45% 0px -45% 0px'});beats.forEach(function(b){bo.observe(b)})}}
+/* nav highlight */
+if('IntersectionObserver' in window){var links=$$('.menu a');var no=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('act',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-40% 0px -50% 0px'});['beats','lab','gallery','shop','faq'].forEach(function(id){var s=document.getElementById(id);if(s)no.observe(s)})}
+/* beaker */
+var bk=$('#bk'),cw=$('#cwrap');
+if(bk&&cw){var bx=0,by=0,dr=false,ox=0,oy=0,poured=false;
+ function setB(){bk.style.transform='translate('+bx+'px,'+by+'px)'}
+ function near(){var r=cw.getBoundingClientRect(),b=bk.getBoundingClientRect();var cx=(b.left+b.width/2-r.left)/r.width,cy=(b.top+b.height/2-r.top)/r.width;return Math.hypot(cx-.4,cy-.1)<.17}
+ function doPour(){if(poured)return;poured=true;bk.classList.add('pour');if(!rm&&!stat&&window.__burst)window.__burst();else $('#labhint').textContent='Reduced motion is on, so the flask stays calm.';setTimeout(function(){poured=false;if(!dr){bk.classList.remove('pour');bx=0;by=0;setB()}},1700)}
+ bk.addEventListener('pointerdown',function(e){dr=true;bk.classList.add('drag');bk.setPointerCapture(e.pointerId);ox=e.clientX-bx;oy=e.clientY-by;$('#bkh').style.opacity=0});
+ bk.addEventListener('pointermove',function(e){if(!dr)return;bx=e.clientX-ox;by=e.clientY-oy;setB();if(near())doPour();else if(!poured)bk.classList.remove('pour')});
+ function up(){if(!dr)return;dr=false;bk.classList.remove('drag');if(!poured){bk.classList.remove('pour');bx=0;by=0;setB()}}
+ bk.addEventListener('pointerup',up);bk.addEventListener('pointercancel',up);
+ bk.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();var r=cw.getBoundingClientRect(),b=bk.getBoundingClientRect();bx+=r.width*.4-(b.left+b.width/2-r.left);by+=r.width*.1-(b.top+b.height/2-r.top);setB();doPour()}})}
+/* temperature illustration */
+var tc=$('#tmpc');
+if(tc){var tx=tc.getContext('2d'),TW=560,TH=728,tp=new Path2D();tp.addPath(new Path2D('M320 80 H480 V400 L680 840 Q700 920 620 920 H180 Q100 920 120 840 L320 400 Z'),new DOMMatrix([.7,0,0,.7,0,0]));
+ var tv=20,PS=[],tvis=false;
+ for(var i=0;i<34;i++){var px0,py0,n=0;do{px0=100+Math.random()*360;py0=300+Math.random()*340;n++}while(!tx.isPointInPath(tp,px0,py0)&&n<200);var an=Math.random()*6.283;PS.push({x:px0,y:py0,vx:Math.cos(an),vy:Math.sin(an)})}
+ function mix(a,b,t){return Math.round(a+(b-a)*t)}
+ function drawT(step){var s=.5+tv*.06,t=tv/100;tx.clearRect(0,0,TW,TH);
+  var g=tx.createRadialGradient(280,480,20,280,480,300);g.addColorStop(0,'rgba(255,183,3,'+(.06+t*.25)+')');g.addColorStop(1,'rgba(255,183,3,0)');tx.fillStyle=g;tx.fillRect(0,0,TW,TH);
+  tx.fillStyle='rgba(251,239,223,.05)';tx.fill(tp);
+  PS.forEach(function(p){if(step){var nx=p.x+p.vx*s,ny=p.y+p.vy*s;if(!tx.isPointInPath(tp,nx,p.y))p.vx*=-1;else p.x=nx;if(!tx.isPointInPath(tp,p.x,ny))p.vy*=-1;else p.y=ny}
+   tx.fillStyle='rgb('+mix(251,255,t)+','+mix(239,150,t)+','+mix(223,3,t)+')';tx.beginPath();tx.arc(p.x,p.y,7,0,6.283);tx.fill()});
+  tx.strokeStyle='#fbefdf';tx.lineWidth=8;tx.lineJoin='round';tx.stroke(tp)}
+ function tl(){if(!tvis)return;drawT(true);raf(tl)}
+ var tsl=$('#tmps'),tlab=$('#tmpl');
+ tsl.addEventListener('input',function(){tv=+tsl.value;tlab.textContent=tv<34?'Cold. Particles drift slowly.':tv<67?'Warm. They move faster.':'Hot. They zoom around and push harder.';if(rm||stat)drawT(false)});
+ drawT(false);
+ if(!rm&&!stat)new IntersectionObserver(function(es){tvis=es[0].isIntersecting;if(tvis)raf(tl)}).observe(tc)}
+/* before after */
+var ba=$('#ba'),bai=$('#bai');if(ba&&bai){bai.addEventListener('input',function(){ba.style.setProperty('--p',bai.value+'%')})}
+/* lightbox */
+var lb=$('#lb');
+if(lb&&lb.showModal){var gi=$$('#car .gimg'),li=0,lbi=$('#lbi'),lbc=$('#lbc');
+ function show(i){li=(i+gi.length)%gi.length;lbi.src=gi[li].src;lbi.alt=gi[li].alt;lbc.textContent=gi[li].alt+'  ('+(li+1)+' of '+gi.length+')'}
+ var moved=false;
+ if(car){car.addEventListener('pointerdown',function(){moved=false});car.addEventListener('pointermove',function(){moved=true})}
+ gi.forEach(function(im,i){function open(){if(moved)return;show(i);lb.showModal()}im.addEventListener('click',open);im.addEventListener('keydown',function(e){if(e.key==='Enter'){moved=false;open()}})});
+ $('#lb .x').addEventListener('click',function(){lb.close()});$('#lb .pv').addEventListener('click',function(){show(li-1)});$('#lb .nx').addEventListener('click',function(){show(li+1)});
+ lb.addEventListener('click',function(e){if(e.target.classList.contains('in'))lb.close()});
+ lb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(li-1);if(e.key==='ArrowRight')show(li+1)})}
+/* wizard */
+var wz=$('#wz');
+if(wz){var step=1,sts=$$('fieldset.st',wz),dots=$$('#dots i'),wb=$('#wb'),wn=$('#wn'),ws=$('#ws'),wc=$('#wc'),pv=$('#pv'),wst=$('#wst');
+ function val(n){var e=wz.querySelector('input[name="'+n+'"]:checked');return e?e.value:''}
+ function msg(){var nm=$('#w1').value.trim(),sc=$('#w2').value.trim(),dt=$('#w4').value,ms=$('#w5').value.trim();
+  var t='Hello Fabula Spark.\nName: '+(nm||'...')+'\nI am a: '+val('role')+'\nNeed: '+val('topic');
+  if(sc)t+='\nSchool: '+sc;t+='\nAge group: '+val('age')+'\nStudents: '+$('#w3').value;if(dt)t+='\nPreferred date: '+dt;if(ms)t+='\nMessage: '+ms;return t}
+ function upd(){pv.textContent=msg();sts.forEach(function(s,i){s.classList.toggle('on',i+1===step)});dots.forEach(function(d,i){d.classList.toggle('on',i<step)});wb.style.display=step>1?'':'none';wn.style.display=step<4?'':'none';ws.style.display=step===4?'':'none';wc.style.display=step===4?'':'none'}
+ wz.addEventListener('input',upd);wz.addEventListener('change',upd);
+ wn.addEventListener('click',function(){if(step===1&&!$('#w1').value.trim()){$('#w1').parentNode.classList.add('err');$('#w1').focus();wst.textContent='Please add your name first.';return}wst.textContent='';$('#w1').parentNode.classList.remove('err');step=Math.min(4,step+1);upd()});
+ wb.addEventListener('click',function(){step=Math.max(1,step-1);upd()});
+ wz.addEventListener('submit',function(e){e.preventDefault();if(step<4){wn.click();return}if(!$('#w1').value.trim()){step=1;upd();wst.textContent='Please add your name first.';return}window.open('https://wa.me/201018637476?text='+encodeURIComponent(msg()),'_blank','noopener');wst.textContent='WhatsApp should open with your message. Press send there.'});
+ wc.addEventListener('click',function(){if(navigator.clipboard)navigator.clipboard.writeText(msg()).then(function(){wst.textContent='Message copied.'},function(){wst.textContent='Could not copy. Select the text on the left.'})});
+ upd()}
 /* product links */
 $$('.prod a').forEach(function(a){var n=a.parentNode.querySelector('h3').textContent;a.href='https://wa.me/201018637476?text='+encodeURIComponent('Hello Fabula Spark, I would like to ask about: '+n);a.target='_blank';a.rel='noopener'});
 })();
 
-</script>
+(function(){var s=document.getElementById('scrs');if(!s)return;var im=document.querySelectorAll('#scri img'),c=document.getElementById('scrc'),caps=c.getAttribute('data-caps').split('|');
+s.addEventListener('input',function(){var v=+s.value;for(var i=0;i<im.length;i++)im[i].classList.toggle('on',i===v);c.textContent=caps[v]});
+var pct=function(){s.style.setProperty('--p',(s.value/3*100)+'%')};s.addEventListener('input',pct);pct()})();</script>
 </body>
 </html>
