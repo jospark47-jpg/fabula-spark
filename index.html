@@ -237,13 +237,51 @@ legend{font-size:20px;line-height:28px;font-weight:600;margin-bottom:16px}
 .st .scr .bimgs img{transition:none}
 .visual .vi img{animation:cyc 20s linear infinite;opacity:0}
 .visual .vi img:nth-child(1){animation-delay:-1s}.visual .vi img:nth-child(2){animation-delay:4s}.visual .vi img:nth-child(3){animation-delay:9s}.visual .vi img:nth-child(4){animation-delay:14s}
-@media(prefers-reduced-motion:reduce){.visual .vi img{animation:none}.visual .vi img:first-child{opacity:1}}</style>
+@media(prefers-reduced-motion:reduce){.visual .vi img{animation:none}.visual .vi img:first-child{opacity:1}}
+/* v6 additions */
+.shopgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sp{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;transition:transform 500ms var(--ease),border-color 300ms var(--ease)}
+.sp:hover{transform:translateY(-6px);border-color:rgba(255,183,3,.45)}
+.spimg{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/5;background:radial-gradient(120% 90% at 50% 30%,#2b2233 0%,#14101a 70%);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.spimg img{max-width:88%;max-height:92%;object-fit:contain;display:block;filter:drop-shadow(0 18px 28px rgba(0,0,0,.55))}
+.spimg img.cover{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:cover;filter:none}
+.spimg .sw{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 400ms var(--ease)}
+.spimg .sw.on{opacity:1}
+.spimg .sw.plum{background:radial-gradient(100% 80% at 50% 40%,#5b3347 0%,#33202c 75%)}
+.tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.stag{font-size:12px;line-height:16px;font-weight:700;border-radius:999px;padding:4px 10px;border:1px solid var(--line);color:var(--muted)}
+.stag.real{background:rgba(255,183,3,.14);color:var(--accent);border-color:rgba(255,183,3,.4)}
+.sp h3{font-size:20px;line-height:28px}.sp p{color:var(--muted);font-size:14px;line-height:20px;margin:4px 0 12px}
+.sp a.ask{margin-top:auto;font-size:14px;line-height:20px;color:var(--accent);font-weight:600}
+.sp .modes{margin:0 0 12px;gap:8px}.sp .chip{padding:6px 14px}
+.game{position:relative;height:360px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:radial-gradient(120% 100% at 50% 100%,#241c2b 0%,#0d0b10 70%);touch-action:manipulation}
+.game .bub{position:absolute;bottom:-90px;border-radius:50%;border:2px solid rgba(251,239,223,.7);background:radial-gradient(circle at 30% 28%,rgba(255,255,255,.7),rgba(255,214,120,.28) 55%,rgba(255,183,3,.14));cursor:pointer;padding:0;animation:rise var(--t,6s) linear forwards}
+.game .bub.pop{animation:none;transform:scale(1.6);opacity:0;transition:transform 260ms var(--ease),opacity 260ms var(--ease)}
+@keyframes rise{to{transform:translateY(-520px)}}
+.gbar{display:flex;gap:16px;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap}
+.gscore{font-size:20px;line-height:28px;font-weight:700}.gscore b{color:var(--accent)}
+.gmsg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px;pointer-events:none}
+.gmsg .btn{pointer-events:auto}
+.quiz .q{margin-bottom:24px}.quiz h3{font-size:22px;line-height:30px;margin-bottom:12px}
+.quiz .opts{display:flex;flex-wrap:wrap;gap:10px}
+.qres{border:1px solid rgba(255,183,3,.4);background:rgba(255,183,3,.07);border-radius:var(--r);padding:24px;margin-top:8px}
+.qres h3{font-size:28px;line-height:34px;margin-bottom:8px}.qres p{color:var(--muted);margin-bottom:16px}
+.plan{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.plan .row{margin-bottom:20px}.plan .lbl{font-size:14px;line-height:20px;font-weight:700;color:var(--muted);margin-bottom:8px;display:block}
+.planout{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:12px;justify-content:center}
+.planout h3{font-size:24px;line-height:32px}.planout p{color:var(--muted)}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+.vcard video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:var(--r);border:1px solid var(--line);background:#000;display:block}
+.vcard h3{font-size:20px;line-height:28px;margin:12px 0 4px}.vcard p{color:var(--muted);font-size:14px;line-height:20px}
+.aboutflex{display:flex;gap:32px;align-items:center;flex-wrap:wrap}.aboutflex img{height:120px;width:auto}
+@media(max-width:820px){.shopgrid,.vgrid,.plan{grid-template-columns:1fr}.vcard{max-width:360px}.game{height:320px}}
+</style>
 </head>
 <body>
 <div class="prog" id="prog"></div>
 <div class="cursorlight" id="cl"></div>
 <canvas id="trail"></canvas>
-<nav class="nav"><a href="#"><img src="wordmark.png" alt="Fabula Spark"></a><div class="menu"><a href="#beats">The show</a><a href="#lab">Lab</a><a href="#gallery">Moments</a><a href="#shop">Shop</a><a href="#team">About</a><a href="#faq">FAQ</a></div><a class="btn mag" href="#inquiry">Book a show</a></nav>
+<nav class="nav"><a href="#"><img src="wordmark.png" alt="Fabula Spark"></a><div class="menu"><a href="#beats">The show</a><a href="#lab">Lab</a><a href="#gallery">Moments</a><a href="#play">Play</a><a href="#shop">Shop</a><a href="#team">About</a><a href="#watch">Videos</a><a href="#faq">FAQ</a></div><a class="btn mag" href="#inquiry">Book a show</a></nav>
 <a class="wa" id="wa" href="https://wa.me/201018637476?text=Hello%20Fabula%20Spark%2C%20I%20have%20a%20question." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg><span>Chat on WhatsApp</span></a>
 <div class="wrap">
 <header class="hero" id="hero">
@@ -359,6 +397,26 @@ legend{font-size:20px;line-height:28px;font-weight:600;margin-bottom:16px}
  <div class="ba rv" id="ba" style="--d:120ms"><img src="h5.jpg" alt="A calm experiment table with foam and flasks on stage" loading="lazy"><img class="top" src="k60.jpg" alt="Two presenters on stage as a burst of fire rises from the table" loading="lazy"><input type="range" min="0" max="100" value="50" id="bai" aria-label="Reveal slider between a calm table and a big reaction"><div class="line"></div><div class="knob" aria-hidden="true">&#8596;</div><span class="tag1">The reaction</span><span class="tag2">The table</span></div>
 </div></section>
 
+<section id="play" style="padding-top:0"><div class="wrap">
+ <p class="eyebrow rv">Play</p>
+ <h2 class="rv" style="--d:60ms">Pop the vapor bubbles</h2>
+ <p class="lead rv" style="--d:100ms">Tap the bubbles before they float away. Pop ten to set off a spark.</p>
+ <div class="gbar rv"><p class="gscore">Popped <b id="gs">0</b> of 10</p><button class="chip" id="gbtn" type="button">Start</button></div>
+ <div class="game rv" id="game" aria-label="Bubble popping game"><div class="gmsg" id="gmsg"><p class="hint">Press start, then tap the bubbles.</p></div></div>
+</div></section>
+
+<section id="quiz" style="padding-top:0"><div class="wrap" style="max-width:760px">
+ <p class="eyebrow rv">Quick quiz</p>
+ <h2 class="rv" style="--d:60ms">Which reaction are you?</h2>
+ <p class="lead rv" style="--d:100ms">Three questions. Then try your reaction in the lab.</p>
+ <div class="quiz rv" id="qz">
+  <div class="q" data-q="0"><h3>Pick a moment.</h3><div class="opts"><button class="chip" data-r="fizz">A fizzy drink opening</button><button class="chip" data-r="foam">A bubble bath overflowing</button><button class="chip" data-r="spark">Fireworks</button><button class="chip" data-r="vapor">Mist on a cold morning</button></div></div>
+  <div class="q" data-q="1"><h3>Your energy is.</h3><div class="opts"><button class="chip" data-r="fizz">Quick and cheerful</button><button class="chip" data-r="foam">Big and soft</button><button class="chip" data-r="spark">Bright and loud</button><button class="chip" data-r="vapor">Calm and mysterious</button></div></div>
+  <div class="q" data-q="2"><h3>In class you are.</h3><div class="opts"><button class="chip" data-r="fizz">The one with questions</button><button class="chip" data-r="foam">The one who builds</button><button class="chip" data-r="spark">The one who volunteers first</button><button class="chip" data-r="vapor">The one who watches closely</button></div></div>
+  <div class="qres" id="qres" hidden><h3 id="qt"></h3><p id="qd"></p><button class="btn" id="qgo" type="button">Try it in the lab</button> <button class="chip" id="qre" type="button">Start again</button></div>
+ </div>
+</div></section>
+
 <section id="how" style="padding-top:0"><div class="wrap">
  <h2 class="rv">How booking works</h2>
  <p class="lead rv" style="--d:80ms">Three steps from first message to show day.</p>
@@ -367,6 +425,20 @@ legend{font-size:20px;line-height:28px;font-weight:600;margin-bottom:16px}
   <div class="card tilt rv" style="--d:0ms" data-tilt><p class="num">Step 1</p><h3>Tell us about your school</h3><p>Share the age group, audience size and the topics you care about.</p></div>
   <div class="card tilt rv" style="--d:100ms" data-tilt><p class="num">Step 2</p><h3>We shape the experience</h3><p>We choose experiments and a story that fit your students and your space.</p></div>
   <div class="card tilt rv" style="--d:200ms" data-tilt><p class="num">Step 3</p><h3>Show day</h3><p>We arrive, set up and run the session. Your students do the rest.</p></div>
+ </div>
+</div></section>
+
+<section id="planner" style="padding-top:0"><div class="wrap">
+ <p class="eyebrow rv">Plan your show</p>
+ <h2 class="rv" style="--d:60ms">Tell us about your school</h2>
+ <p class="lead rv" style="--d:100ms">Pick a few details. We turn them into a message you can send us on WhatsApp.</p>
+ <div class="plan rv" id="plan">
+  <div>
+   <div class="row"><span class="lbl">Audience</span><div class="modes" data-k="aud" style="margin:0"><button class="chip" aria-pressed="false">Under 100</button><button class="chip" aria-pressed="true">100 to 300</button><button class="chip" aria-pressed="false">300 to 600</button><button class="chip" aria-pressed="false">600 or more</button></div></div>
+   <div class="row"><span class="lbl">Age group</span><div class="modes" data-k="age" style="margin:0"><button class="chip" aria-pressed="false">Kindergarten</button><button class="chip" aria-pressed="true">Primary</button><button class="chip" aria-pressed="false">Preparatory</button><button class="chip" aria-pressed="false">Secondary</button><button class="chip" aria-pressed="false">Mixed</button></div></div>
+   <div class="row"><span class="lbl">Where</span><div class="modes" data-k="where" style="margin:0"><button class="chip" aria-pressed="true">Hall</button><button class="chip" aria-pressed="false">School yard</button><button class="chip" aria-pressed="false">Not sure yet</button></div></div>
+  </div>
+  <div class="planout"><span class="illo" style="align-self:flex-start;margin:0">Your plan</span><h3 id="pt"></h3><p id="pd">We confirm the details, dates and what fits your space together on WhatsApp.</p><a class="btn mag" id="pgo" href="#" target="_blank" rel="noopener">Send this plan on WhatsApp</a></div>
  </div>
 </div></section>
 
@@ -392,12 +464,25 @@ legend{font-size:20px;line-height:28px;font-weight:600;margin-bottom:16px}
  <p class="eyebrow rv">The Spark shop</p>
  <h2 class="rv" style="--d:60ms">Take a little Spark home</h2>
  <p class="lead rv" style="--d:100ms">Wear it on show day, or try a small experiment at the kitchen table.</p>
- <div class="grid">
-  <div class="prod rv" style="--d:0ms"><div class="pimg"><img src="prod_hoodie.jpg" alt="Fabula Spark hoodie in plum with the Spark logo" loading="lazy"></div><h3>Spark hoodie</h3><p>The one we wear on show days.</p><a href="#contact">Ask about it</a></div>
-  <div class="prod rv" style="--d:100ms"><div class="pimg"><img src="prod_tshirt.jpg" alt="Fabula Spark t shirt illustration" loading="lazy"></div><h3>Spark t shirt</h3><p>A lighter way to wear the flask.</p><a href="#contact">Ask about it</a></div>
-  <div class="prod rv" style="--d:200ms"><div class="pimg"><img src="prod_kit.jpg" alt="Fabula Spark mini experiment kit illustration" loading="lazy"></div><h3>Mini experiment kit</h3><p>Simple experiments from the show, to try at home.</p><a href="#contact">Ask about it</a></div>
+ <div class="shopgrid">
+  <div class="sp rv" style="--d:0ms">
+   <div class="spimg" id="hoodieimg"><img id="hf" src="hoodie_front.png" alt="Fabula Spark hoodie in plum, front, with the SPARK wordmark and the flask logo" loading="lazy"><div class="sw plum" id="hb"><img src="hoodie_back.png" alt="Back print: the FS atom logo with orbiting rings" loading="lazy" style="max-width:82%"></div></div>
+   <div class="tagrow"><span class="stag real">Real product</span><span class="stag">Plum</span></div>
+   <div class="modes" role="group" aria-label="Hoodie view"><button class="chip" data-v="f" aria-pressed="true">Front</button><button class="chip" data-v="b" aria-pressed="false">Back print</button></div>
+   <h3>Spark hoodie</h3><p>The one we wear on show days. SPARK wordmark and flask on the front, the FS atom on the back.</p><a class="ask" href="https://wa.me/201018637476?text=Hello%20Fabula%20Spark%2C%20I%20would%20like%20to%20ask%20about%20the%20Spark%20hoodie." target="_blank" rel="noopener">Ask about it on WhatsApp</a>
+  </div>
+  <div class="sp rv" style="--d:100ms">
+   <div class="spimg"><img class="cover" src="tee_mockup.jpg" alt="Black Fabula Spark t shirt mockup with the SPARK wordmark and a small flask logo" loading="lazy"></div>
+   <div class="tagrow"><span class="stag">Design mockup</span><span class="stag">Black</span></div>
+   <h3>Spark t shirt</h3><p>A lighter way to wear the flask. Shown as a design preview, not a photo of the finished shirt.</p><a class="ask" href="https://wa.me/201018637476?text=Hello%20Fabula%20Spark%2C%20I%20would%20like%20to%20ask%20about%20the%20Spark%20t%20shirt." target="_blank" rel="noopener">Ask about it on WhatsApp</a>
+  </div>
+  <div class="sp rv" style="--d:200ms">
+   <div class="spimg"><img class="cover" src="prod_kit.jpg" alt="Fabula Spark mini experiment kit illustration" loading="lazy"></div>
+   <div class="tagrow"><span class="stag">Illustration</span><span class="stag">Concept</span></div>
+   <h3>Mini experiment kit</h3><p>Simple experiments from the show, to try at home. Still a concept, contents to be confirmed.</p><a class="ask" href="https://wa.me/201018637476?text=Hello%20Fabula%20Spark%2C%20I%20would%20like%20to%20ask%20about%20the%20mini%20experiment%20kit." target="_blank" rel="noopener">Ask about it on WhatsApp</a>
+  </div>
  </div>
- <p class="note rv">Shop details to be confirmed. The t shirt and kit images are illustrations.</p>
+ <p class="note rv">Sizes, prices and availability are confirmed on WhatsApp. Only the hoodie is shown as a real product photo.</p>
 </div></section>
 
 
@@ -412,7 +497,7 @@ legend{font-size:20px;line-height:28px;font-weight:600;margin-bottom:16px}
 <section id="team" style="padding-top:0"><div class="wrap">
  <h2 class="rv">About Fabula Spark</h2>
  <p class="lead rv" style="--d:80ms">Fabula Spark is an educational brand. Our live science show brings experiments and stories to school assemblies, so students see how discoveries happen.</p>
- <div class="card rv" style="--d:120ms;max-width:420px"><p class="num">Co-founder</p><h3>Mahmoud Abdelhafiz</h3><p lang="ar" dir="rtl" style="font-family:inherit">محمود عبدالحفيظ</p></div>
+ <div class="aboutflex rv" style="--d:120ms"><img src="flasklogo.png" alt="Fabula Spark flask logo with the letters FS" loading="lazy"><div class="card" style="max-width:420px;flex:1;min-width:260px"><p class="num">Co-founder</p><h3>Mahmoud Abdelhafiz</h3><p lang="ar" dir="rtl" style="font-family:inherit">محمود عبدالحفيظ</p></div></div>
  <p class="lead rv" lang="ar" dir="rtl" style="--d:160ms;margin:32px 0 0">فيبولا سبارك أو فبولا سبارك (Fabula Spark): عرض علمي حي للمدارس، بتجارب وقصص وردود فعل كبيرة تخلي الطلاب فضوليين.</p>
 </div></section>
 
@@ -457,6 +542,17 @@ legend{font-size:20px;line-height:28px;font-weight:600;margin-bottom:16px}
   </form>
  </div>
 </div></section>
+<section id="watch" style="padding-top:0"><div class="wrap">
+ <p class="eyebrow rv">Watch</p>
+ <h2 class="rv" style="--d:60ms">Fabula Spark in action</h2>
+ <p class="lead rv" style="--d:100ms">Three short films from school days and our lab. Sound effects only, no music.</p>
+ <div class="vgrid">
+  <div class="vcard rv" style="--d:0ms"><video controls preload="none" playsinline poster="poster_master.jpg"><source src="video_master.mp4" type="video/mp4"></video><h3>A day of live science</h3><p>The full story, 33 seconds, from school yards and stages.</p></div>
+  <div class="vcard rv" style="--d:100ms"><video controls preload="none" playsinline poster="poster_fast.jpg"><source src="video_fast.mp4" type="video/mp4"></video><h3>The fast cut</h3><p>Forty four shots, getting faster, 26 seconds.</p></div>
+  <div class="vcard rv" style="--d:200ms"><video controls preload="none" playsinline poster="poster_dry.jpg"><source src="video_dry.mp4" type="video/mp4"></video><h3>The dry ice bubble</h3><p>A giant vapor bubble, from fog to lift off.</p></div>
+ </div>
+</div></section>
+
 <section id="contact" style="padding-top:0"><div class="wrap">
  <div class="final rv">
   <h2>Ready for a bang? Bring Fabula Spark to your school</h2>
@@ -635,5 +731,39 @@ $$('.prod a').forEach(function(a){var n=a.parentNode.querySelector('h3').textCon
 (function(){var s=document.getElementById('scrs');if(!s)return;var im=document.querySelectorAll('#scri img'),c=document.getElementById('scrc'),caps=c.getAttribute('data-caps').split('|');
 s.addEventListener('input',function(){var v=+s.value;for(var i=0;i<im.length;i++)im[i].classList.toggle('on',i===v);c.textContent=caps[v]});
 var pct=function(){s.style.setProperty('--p',(s.value/3*100)+'%')};s.addEventListener('input',pct);pct()})();</script>
+
+<script>
+(function(){
+function $(s,r){return (r||document).querySelector(s)}function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* hoodie toggle */
+(function(){var b=$('#hb');if(!b)return;var card=b.closest('.sp');$$('.chip',card).forEach(function(c){c.addEventListener('click',function(){$$('.chip',card).forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});b.classList.toggle('on',c.dataset.v==='b')})})})();
+/* bubble game */
+(function(){var g=$('#game');if(!g)return;var sc=$('#gs'),btn=$('#gbtn'),msg=$('#gmsg'),n=0,run=false,tm=null,left=0;
+function spawn(){if(!run)return;var d=Math.round(46+Math.random()*44),b=document.createElement('button');b.type='button';b.className='bub';b.setAttribute('aria-label','Pop the bubble');b.style.width=b.style.height=d+'px';b.style.left=Math.round(Math.random()*(g.clientWidth-d))+'px';b.style.setProperty('--t',(rm?9:4.5+Math.random()*3)+'s');
+ b.addEventListener('click',function(){if(!run||b.classList.contains('pop'))return;b.classList.add('pop');n++;sc.textContent=n;setTimeout(function(){b.remove()},280);if(n>=10)win()});
+ b.addEventListener('animationend',function(){b.remove()});g.appendChild(b)}
+function clear(){$$('.bub',g).forEach(function(x){x.remove()})}
+function win(){run=false;clearInterval(tm);clear();msg.innerHTML='<h3>Spark!</h3><p class="hint">You popped ten. Not bad at all.</p><button class="btn" type="button" id="gagain">Play again</button>';g.appendChild(msg);msg.style.display='flex';$('#gagain').addEventListener('click',start);btn.textContent='Restart'}
+function start(){clear();n=0;sc.textContent=0;run=true;msg.style.display='none';btn.textContent='Restart';clearInterval(tm);spawn();tm=setInterval(spawn,rm?1400:750)}
+btn.addEventListener('click',start)})();
+/* quiz */
+(function(){var z=$('#qz');if(!z)return;var info={fizz:['Fizz','Quick, cheerful and always full of questions. You light up a room like a fresh reaction.'],foam:['Foam','Big, soft and a builder at heart. You turn a small idea into something huge.'],spark:['Spark','Bright, loud and first to volunteer. Every room is better when you are in it.'],vapor:['Vapor','Calm, curious and observant. You notice what everyone else walks past.']};
+var ans={},qs=$$('.q',z),res=$('#qres'),last=null;
+qs.forEach(function(q){$$('.chip',q).forEach(function(c){c.addEventListener('click',function(){$$('.chip',q).forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});ans[q.dataset.q]=c.dataset.r;if(Object.keys(ans).length===3)show()})})});
+function show(){var t={};Object.keys(ans).forEach(function(k){t[ans[k]]=(t[ans[k]]||0)+1});var best=ans[2],m=0;Object.keys(t).forEach(function(k){if(t[k]>m){m=t[k];best=k}});if(m===1)best=ans[0];last=best;$('#qt').textContent='You are '+info[best][0];$('#qd').textContent=info[best][1];res.hidden=false}
+$('#qgo').addEventListener('click',function(){var c=$('.chip[data-m="'+last+'"]');var l=$('#lab');if(l)l.scrollIntoView({behavior:rm?'auto':'smooth',block:'start'});if(c)setTimeout(function(){c.click()},rm?0:600)});
+$('#qre').addEventListener('click',function(){ans={};res.hidden=true;$$('.chip',z).forEach(function(x){if(x.dataset.r)x.setAttribute('aria-pressed','false')});qs[0].scrollIntoView({behavior:rm?'auto':'smooth',block:'center'})})})();
+/* planner */
+(function(){var p=$('#plan');if(!p)return;var go=$('#pgo');
+function val(k){var b=$('[data-k="'+k+'"] [aria-pressed="true"]',p);return b?b.textContent:''}
+function upd(){var a=val('aud'),g=val('age'),w=val('where').toLowerCase();var title=a+' students, '+g.toLowerCase()+', '+w;$('#pt').textContent=title;
+ var msg='Hello Fabula Spark, I would like to book a science show. Audience: '+a+' students. Age group: '+g+'. Place: '+val('where')+'. Please tell me what suits us and which dates are possible.';
+ go.href='https://wa.me/201018637476?text='+encodeURIComponent(msg)}
+$$('.modes',p).forEach(function(m){$$('.chip',m).forEach(function(c){c.addEventListener('click',function(){$$('.chip',m).forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});upd()})})});upd()})();
+/* one video at a time */
+(function(){var vs=$$('.vcard video');vs.forEach(function(v){v.addEventListener('play',function(){vs.forEach(function(o){if(o!==v)o.pause()})})})})();
+})();
+</script>
 </body>
 </html>
