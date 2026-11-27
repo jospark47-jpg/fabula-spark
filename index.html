@@ -48,7 +48,7 @@ h1{font-size:60px;line-height:1;margin-bottom:24px}
 .tag{padding:120px 0;text-align:center;background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .tag p{font-size:48px;line-height:1;font-weight:600;text-wrap:balance;max-width:820px;margin:0 auto}
 .tag .w{opacity:.3;transition:opacity 600ms var(--ease),color 600ms var(--ease);display:inline-block;margin-right:.25em}
-.tag .w.on{opacity:1}.tag .w.sp.on{color:var(--accent)}
+.tag .w.on{opacity:1}.tag .w.hl.on{color:var(--accent)}
 h2{font-size:36px;line-height:40px;margin-bottom:16px}
 .lead{font-size:18px;line-height:28px;color:var(--muted);max-width:640px;margin-bottom:48px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -69,7 +69,7 @@ details p{margin-top:16px;color:var(--muted);font-size:16px;line-height:24px}
 .final{text-align:center;background:linear-gradient(135deg,#2e2203,#161513);border-radius:var(--r);padding:80px 24px;border:1px solid var(--line)}
 .final h2{font-size:48px;line-height:1;max-width:720px;margin:0 auto 24px}
 .final p{color:var(--muted);margin-bottom:32px}
-footer{padding:48px 0;color:var(--muted);font-size:14px;line-height:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer{max-width:1120px;margin:0 auto;padding:48px 24px;color:var(--muted);font-size:14px;line-height:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 .js .rv{opacity:0;transform:translateY(32px);transition:opacity 700ms var(--ease),transform 700ms var(--ease);transition-delay:var(--d,0ms)}
 .js .rv.in{opacity:1;transform:none}
 .he{animation:rise 800ms var(--ease) both;animation-delay:var(--d,0ms)}
@@ -317,7 +317,7 @@ html[data-theme=kids] .eyebrow{color:#e2105f;font-weight:800}
 html[data-theme=kids] section:nth-of-type(4n+1){background:#d6f3ff}
 html[data-theme=kids] section:nth-of-type(4n+3){background:#ffe0ee}
 html[data-theme=kids] section:nth-of-type(4n+2){background:#e4f9c9}
-html[data-theme=kids] .tag{background:#ff9d2e;border-color:#1d2b53}html[data-theme=kids] .tag p{color:#1d2b53}html[data-theme=kids] .tag .w.sp.on{color:#fff}
+html[data-theme=kids] .tag{background:#ff9d2e;border-color:#1d2b53}html[data-theme=kids] .tag p{color:#1d2b53}html[data-theme=kids] .tag .w.hl.on{color:#fff}
 html[data-theme=kids] .marq{background:#27c3ff;border-color:#1d2b53}html[data-theme=kids] .marq span{color:#1d2b53!important}
 html[data-theme=kids] .qs{border-color:#1d2b53;background:#fff}html[data-theme=kids] .qs p{color:var(--muted)}html[data-theme=kids] .qs b{color:var(--text)}
 html[data-theme=kids] .card,html[data-theme=kids] .feature,html[data-theme=kids] .prod,html[data-theme=kids] details{border:3px solid #1d2b53;box-shadow:0 6px 0 #1d2b53}
@@ -352,6 +352,8 @@ html[dir=rtl] .marq,html[dir=rtl] #ba,html[dir=rtl] #car,html[dir=rtl] input[typ
 html[dir=rtl] .tl{direction:ltr}html[dir=rtl] h1{line-height:1.2}html[dir=rtl] h2,html[dir=rtl] h3{line-height:1.3}
 html[dir=rtl] .wa{right:auto;left:20px}
 html[dir=rtl] .eyebrow,html[dir=rtl] .hint{letter-spacing:0}
+@media(max-width:820px){footer{padding-bottom:104px}}
+@media(max-width:820px){.hero .float{display:none}}
 </style>
 </head>
 <body>
@@ -359,7 +361,7 @@ html[dir=rtl] .eyebrow,html[dir=rtl] .hint{letter-spacing:0}
 <div class="prog" id="prog"></div>
 <div class="cursorlight" id="cl"></div>
 <canvas id="trail"></canvas>
-<nav class="nav"><a href="#"><img src="wordmark.png" alt="Fabula Spark"></a><div class="menu"><a href="#beats">The show</a><a href="#lab">Lab</a><a href="#gallery">Moments</a><a href="#play">Play</a><a href="#shop">Shop</a><a href="#team">About</a><a href="#watch">Videos</a><a href="#faq">FAQ</a></div><div class="tools"><div class="sw" role="group" aria-label="Theme"><button type="button" class="s-d" data-th="dark" aria-label="Dark theme"></button><button type="button" class="s-l" data-th="light" aria-label="Light theme"></button><button type="button" class="s-k" data-th="kids" aria-label="Colorful kids theme"></button></div><button type="button" class="tb" id="langb" aria-label="Switch language">العربية</button></div><a class="btn mag" href="#inquiry">Book a show</a></nav>
+<nav class="nav"><a href="#"><img src="wordmark.png" alt="Fabula Spark"></a><div class="menu"><a href="#beats">The show</a><a href="#lab">Lab</a><a href="#gallery">Moments</a><a href="#play">Play</a><a href="#shop">Shop</a><a href="#team">About</a><a href="#watch">Videos</a><a href="#faq">FAQ</a></div><div class="tools"><div class="sw" role="group" aria-label="Theme"><button type="button" class="s-d" data-th="dark" aria-label="Dark theme"></button><button type="button" class="s-l" data-th="light" aria-label="Light theme"></button><button type="button" class="s-k" data-th="kids" aria-label="Colorful kids theme"></button></div><button type="button" class="tb" id="langb" aria-label="Switch language">العربية</button></div><a class="btn mag" href="#planner">Book a show</a></nav>
 <a class="wa" id="wa" href="https://wa.me/201018637476?text=Hello%20Fabula%20Spark%2C%20I%20have%20a%20question." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg><span>Chat on WhatsApp</span></a>
 <main id="main">
 <div class="wrap">
@@ -370,7 +372,7 @@ html[dir=rtl] .eyebrow,html[dir=rtl] .hint{letter-spacing:0}
   <p class="eyebrow he" style="--d:100ms">Live science shows for schools. Expect a bang.</p>
   <h1 class="he" style="--d:200ms">Science shows that make every student curious</h1>
   <p class="sub he" style="--d:350ms">Fabula Spark brings live experiments, stories and big reactions to your school, wherever it is.</p>
-  <div class="cta he" style="--d:500ms"><a class="btn mag" href="#inquiry">Book a science show</a><a class="btn ghost mag" href="#lab">Try the lab</a></div>
+  <div class="cta he" style="--d:500ms"><a class="btn mag" href="#planner">Book a science show</a><a class="btn ghost mag" href="#lab">Try the lab</a></div>
   <p class="proof he" style="--d:650ms">Performed at SCLS and at national and international schools.</p>
  </div>
  <div class="visual he tilt" style="--d:300ms" data-tilt><img class="flaskfloat" src="flask.png" alt="" style="height:auto"><div class="vi"><img src="h1.jpg" alt="A column of vapor rising on stage during a Fabula Spark science show"><img src="g3.jpg" alt="A presenter and two students at an experiment table on stage" loading="lazy"><img src="g9.jpg" alt="A burst of fire during a stage experiment" loading="lazy"><img src="g2.jpg" alt="Presenters and students under a balloon arch on a school stage" loading="lazy"></div></div>
@@ -379,13 +381,18 @@ html[dir=rtl] .eyebrow,html[dir=rtl] .hint{letter-spacing:0}
 
 <div class="qs" role="list"><div class="gi"><p role="listitem"><b>We come to you</b><span>Your hall, your stage, your school</span></p><p role="listitem"><b>Live, not recorded</b><span>Real experiments, told as stories</span></p><p role="listitem"><b>Reply on WhatsApp</b><span>Tell us about your school in a minute</span></p><p role="listitem"><b>Every age group</b><span>Kindergarten to older students</span></p></div></div>
 <div class="marq" aria-hidden="true"><div><span>Boom.</span><span>Fizz.</span><span>Pop.</span><span>Whoosh.</span><span>Spark.</span><span>Boom.</span><span>Fizz.</span><span>Pop.</span><span>Whoosh.</span><span>Spark.</span><span>Boom.</span><span>Fizz.</span><span>Pop.</span><span>Whoosh.</span><span>Spark.</span><span>Boom.</span><span>Fizz.</span><span>Pop.</span><span>Whoosh.</span><span>Spark.</span></div></div>
-<div class="tag"><div class="wrap"><p id="tl"><span class="w">Curiosity</span><span class="w">is</span><span class="w">the</span><span class="w sp">spark.</span> <span class="w">We</span><span class="w">bring</span><span class="w">the</span><span class="w">experiment</span><span class="w">that</span><span class="w">lights</span><span class="w">it.</span></p></div></div>
+<div class="tag"><div class="wrap"><p id="tl"><span class="w">Curiosity</span><span class="w">is</span><span class="w">the</span><span class="w hl">spark.</span> <span class="w">We</span><span class="w">bring</span><span class="w">the</span><span class="w">experiment</span><span class="w">that</span><span class="w">lights</span><span class="w">it.</span></p></div></div>
 
 <section id="what"><div class="wrap">
  <h2 class="rv">What we do</h2>
  <p class="lead rv" style="--d:80ms">Science shows are where the spark starts. Other Spark ideas are warming up.</p>
  <div class="feature rv" style="--d:120ms"><div class="t"><p class="eyebrow">Available to book</p><h3>Live science shows</h3><p>Experiments told as stories, so the audience sees how a discovery happened. Fire, vapor, color and big reactions, fun for the youngest and the oldest in the room.</p></div><img src="poster3.jpg" alt="Fabula Spark card reading Curiosity is the spark"></div>
  <div class="atg rv"><div><b>Format</b><span>Live stage show</span></div><div><b>Where</b><span>At your school or venue</span></div><div><b>Audience</b><span>A whole assembly</span></div><div><b>Ages</b><span>Tailored to your group</span></div></div>
+</div></section>
+
+<section id="watch" style="padding-top:0"><div class="wrap vid">
+ <div class="vcard rv" style="max-width:380px;justify-self:center;width:100%"><video controls preload="none" playsinline poster="poster_fast.jpg"><source src="video_fast.mp4" type="video/mp4"></video></div>
+ <div class="rv" style="--d:120ms"><p class="eyebrow">Watch</p><h2>Fabula Spark in 26 seconds</h2><p class="lead" style="margin-bottom:24px">Forty four quick shots from school days, getting faster until the big finish. Sound effects only, no music.</p><a class="btn mag" href="#planner">Book a science show</a></div>
 </div></section>
 
 <section id="beats" style="padding-top:0"><div class="wrap">
@@ -591,39 +598,7 @@ html[dir=rtl] .eyebrow,html[dir=rtl] .hint{letter-spacing:0}
 
 
 
-<section id="inquiry" style="padding-top:0"><div class="wrap">
- <div class="wiz rv">
-  <div>
-   <p class="eyebrow">Plan your show</p>
-   <h2>Tell us what you need</h2>
-   <p class="lead" style="margin-bottom:0">Four quick steps. Your answers become a WhatsApp message to us, ready to send.</p>
-   <div class="dots" id="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
-   <p class="pvl">Your message so far</p>
-   <div class="pvb" id="pv" aria-live="polite"></div>
-   <div class="ctl"><a href="https://wa.me/201018637476" target="_blank" rel="noopener">WhatsApp +20 101 863 7476</a><span>The message opens in WhatsApp for you to send. We do not store anything on this page.</span></div>
-  </div>
-  <form id="wz" novalidate>
-   <fieldset class="st on" data-s="1"><legend>Who is asking?</legend>
-    <div class="fld"><label for="w1">Your name</label><input id="w1" autocomplete="name" required></div>
-    <div class="fld"><label>I am a</label><div class="opts"><label><input type="radio" name="role" value="School or teacher" checked><span>School or teacher</span></label><label><input type="radio" name="role" value="Parent"><span>Parent</span></label><label><input type="radio" name="role" value="Other"><span>Other</span></label></div></div></fieldset>
-   <fieldset class="st" data-s="2"><legend>What do you need?</legend>
-    <div class="opts"><label><input type="radio" name="topic" value="Book a science show" checked><span>Book a science show</span></label><label><input type="radio" name="topic" value="Ask a question"><span>Ask a question</span></label><label><input type="radio" name="topic" value="Shop request"><span>Shop request</span></label><label><input type="radio" name="topic" value="Something else"><span>Something else</span></label></div>
-    <div class="fld"><label for="w2">School or organization (optional)</label><input id="w2" autocomplete="organization"></div></fieldset>
-   <fieldset class="st" data-s="3"><legend>About the audience</legend>
-    <div class="fld"><label>Age group</label><div class="opts"><label><input type="radio" name="age" value="Kindergarten" checked><span>Kindergarten</span></label><label><input type="radio" name="age" value="Primary"><span>Primary</span></label><label><input type="radio" name="age" value="Preparatory"><span>Preparatory</span></label><label><input type="radio" name="age" value="Secondary"><span>Secondary</span></label><label><input type="radio" name="age" value="Mixed"><span>Mixed</span></label></div></div>
-    <div class="fld"><label for="w3">How many students</label><select id="w3"><option>Not sure yet</option><option>Under 50</option><option>50 to 150</option><option>150 to 400</option><option>Over 400</option></select></div>
-    <div class="fld"><label for="w4">Preferred date (optional)</label><input id="w4" type="date"></div></fieldset>
-   <fieldset class="st" data-s="4"><legend>Anything else?</legend>
-    <div class="fld"><label for="w5">Message (optional)</label><textarea id="w5" placeholder="Topics you care about, the venue, questions"></textarea></div></fieldset>
-   <div class="wnav"><button class="btn ghost" type="button" id="wb" style="font-family:inherit;cursor:pointer;display:none">Back</button><button class="btn mag" type="button" id="wn" style="border:0;font-family:inherit;cursor:pointer">Next</button><button class="btn mag" type="submit" id="ws" style="border:0;font-family:inherit;cursor:pointer;display:none">Send on WhatsApp</button><button class="btn ghost" type="button" id="wc" style="font-family:inherit;cursor:pointer;display:none">Copy message</button></div>
-   <p class="pvl" id="wst" aria-live="polite"></p>
-  </form>
- </div>
-</div></section>
-<section id="watch" style="padding-top:0"><div class="wrap vid">
- <div class="vcard rv" style="max-width:380px;justify-self:center;width:100%"><video controls preload="none" playsinline poster="poster_fast.jpg"><source src="video_fast.mp4" type="video/mp4"></video></div>
- <div class="rv" style="--d:120ms"><p class="eyebrow">Watch</p><h2>Fabula Spark in 26 seconds</h2><p class="lead" style="margin-bottom:24px">Forty four quick shots from school days, getting faster until the big finish. Sound effects only, no music.</p><a class="btn mag" href="#inquiry">Book a science show</a></div>
-</div></section>
+
 
 <section id="contact" style="padding-top:0"><div class="wrap">
  <div class="final rv">
@@ -634,7 +609,7 @@ html[dir=rtl] .eyebrow,html[dir=rtl] .hint{letter-spacing:0}
  </main>
 <footer><img src="wordmark.png" alt="Fabula Spark" style="height:48px;width:auto"><a href="https://wa.me/201018637476" target="_blank" rel="noopener">WhatsApp +20 101 863 7476</a></footer>
 </div></section>
-<div class="mbar"><a class="btn" href="#inquiry">Book a show</a><a class="btn ghost" href="https://wa.me/201018637476?text=Hello%20Fabula%20Spark%2C%20I%20would%20like%20to%20book%20a%20science%20show." target="_blank" rel="noopener">WhatsApp</a></div>
+<div class="mbar"><a class="btn" href="#planner">Book a show</a><a class="btn ghost" href="https://wa.me/201018637476?text=Hello%20Fabula%20Spark%2C%20I%20would%20like%20to%20book%20a%20science%20show." target="_blank" rel="noopener">WhatsApp</a></div>
 <dialog id="lb" aria-label="Photo viewer"><div class="in"><img id="lbi" alt=""></div><button class="x" aria-label="Close">&#10005;</button><button class="pv" aria-label="Previous photo">&#8592;</button><button class="nx" aria-label="Next photo">&#8594;</button><p id="lbc"></p></dialog>
 <script>
 (function(){
@@ -861,7 +836,8 @@ function observe(){mo.observe(document.body,{childList:true,subtree:true,charact
 var EN_TITLE=document.title;
 function setLang(l,save){lang=l;root.lang=l;root.dir=l==='ar'?'rtl':'ltr';
  if(l==='ar'&&!document.getElementById('arfont')){var k=document.createElement('link');k.id='arfont';k.rel='stylesheet';k.href='https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap';document.head.appendChild(k)}
- apply();if(l==='en')document.title=EN_TITLE;(window.FSUPD||[]).forEach(function(f){try{f()}catch(e){}});
+ apply();if(l==='en')document.title=EN_TITLE;var MD=document.querySelector('meta[name=description]');if(MD){if(window.__mdEn===undefined)window.__mdEn=MD.content;MD.content=l==='ar'?'فيبولا سبارك بتقدم عروض علمية حية للمدارس: تجارب وقصص وردود فعل كبيرة تخلي الطلاب فضوليين. احجز عرض علمي على واتساب.':window.__mdEn}
+(window.FSUPD||[]).forEach(function(f){try{f()}catch(e){}});
  var b=document.getElementById('langb');b.textContent=l==='ar'?'English':'العربية';b.setAttribute('aria-label',l==='ar'?'Switch to English':'التبديل إلى العربية');
  if(save)try{localStorage.setItem('fs_lang',l)}catch(e){}}
 function setTheme(t,save){if(t==='dark')root.removeAttribute('data-theme');else root.setAttribute('data-theme',t);
