@@ -5,11 +5,15 @@
 ## Facts
 - Service available to book: live science shows, performed at your school or venue.
 - Co-founder: Mahmoud Abdelhafiz (محمود عبدالحفيظ).
-- Booking: WhatsApp +20 101 863 7476 (https://wa.me/201018637476) or the inquiry form on the website.
+- Booking: WhatsApp +20 101 863 7476 (https://wa.me/201018637476) or the planner on the Book page.
 - Other Spark experiences are announced as coming soon and are not bookable yet.
 - Pricing and dates are confirmed per school on request. No prices are published.
 
 ## Pages
-- [Home, what we do, how booking works, FAQ](https://jospark47-jpg.github.io/fabula-spark/)
-- [About and co-founder](https://jospark47-jpg.github.io/fabula-spark/#team)
-- [Book a science show](https://jospark47-jpg.github.io/fabula-spark/#inquiry)
+- [Home: what we do and the 26 second film](https://jospark47-jpg.github.io/fabula-spark/)
+- [The show: five beats, big screen explainer](https://jospark47-jpg.github.io/fabula-spark/show.html)
+- [Play: tiny lab, bubble game, quiz](https://jospark47-jpg.github.io/fabula-spark/play.html)
+- [Moments and film](https://jospark47-jpg.github.io/fabula-spark/moments.html)
+- [The Spark shop](https://jospark47-jpg.github.io/fabula-spark/shop.html)
+- [About, co-founder and FAQ](https://jospark47-jpg.github.io/fabula-spark/about.html)
+- [Book a science show](https://jospark47-jpg.github.io/fabula-spark/book.html)
