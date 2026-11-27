@@ -431,3 +431,5 @@ html[data-theme=kids] .trc,html[data-theme=kids] .shin,html[data-theme=kids] .tr
 html[data-theme=kids] .trc h3,html[data-theme=kids] .trproof b,html[data-theme=kids] .shin b{color:#1d2b53}html[data-theme=kids] .trc p,html[data-theme=kids] .trproof p,html[data-theme=kids] .shin p{color:#3a4a7a}
 html[data-theme=kids] .trc:nth-child(1){background:#ffd6e7}html[data-theme=kids] .trc:nth-child(2){background:#d6f2ff}html[data-theme=kids] .trc:nth-child(3){background:#e3f7c8}html[data-theme=kids] .trc:nth-child(4){background:#fff1b8}
 html[data-theme=kids] .trn{background:#e0245e;color:#fff}html[data-theme=kids] .trfact b{color:#e0245e}
+.trlist{margin:0;padding:0 0 0 22px;display:grid;gap:8px;font-size:17px;line-height:26px}html[dir=rtl] .trlist{padding:0 22px 0 0}
+html[data-theme=kids] .trlist{color:#1d2b53}
