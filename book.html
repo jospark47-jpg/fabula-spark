@@ -50,6 +50,32 @@
   <div class="planout"><span class="illo" style="align-self:flex-start;margin:0">Your plan</span><h3 id="pt"></h3><p id="pd">We confirm the details, dates and what fits your space together on WhatsApp.</p><a class="btn mag" id="pgo" href="#" target="_blank" rel="noopener">Send this plan on WhatsApp</a></div>
  </div>
 </div></section>
+<section id="msg" style="padding-top:0"><div class="wrap" style="max-width:760px">
+ <p class="eyebrow rv">Contact</p>
+ <h2 class="rv" style="--d:60ms">Send us a message</h2>
+ <p class="lead rv" style="--d:100ms">Pick what you need and we will reply. Prefer WhatsApp? Use the button at the bottom.</p>
+ <form class="fmx rv" id="fmx" novalidate>
+  <fieldset class="fmt"><legend>I want to</legend>
+   <label><input type="radio" name="kind" value="booking" checked><span>Book a show</span></label>
+   <label><input type="radio" name="kind" value="question"><span>Ask a question</span></label>
+   <label><input type="radio" name="kind" value="partner"><span>Partner or other</span></label>
+  </fieldset>
+  <div class="fmg">
+   <label class="fmf">Your name<input name="name" type="text" autocomplete="name" required></label>
+   <label class="fmf" data-for="booking partner">School or organization<input name="org" type="text" autocomplete="organization"></label>
+   <label class="fmf">Phone or WhatsApp<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
+   <label class="fmf">Email (optional)<input name="email" type="email" autocomplete="email"></label>
+   <label class="fmf" data-for="booking">Preferred date<input name="date" type="date"></label>
+   <label class="fmf" data-for="booking">Grade level<select name="grade"><option value="">Choose</option><option>Kindergarten</option><option>Primary</option><option>Preparatory</option><option>Secondary</option><option>Mixed ages</option></select></label>
+   <label class="fmf" data-for="booking">Number of students<input name="students" type="number" min="1" inputmode="numeric"></label>
+   <label class="fmf fmw">Your message<textarea name="notes" rows="4"></textarea></label>
+  </div>
+  <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="fmh" aria-hidden="true">
+  <div class="fmb"><button class="btn" type="submit">Send message</button><button class="chip fmwa" type="button">Send on WhatsApp instead</button></div>
+  <p class="fmo" role="status" aria-live="polite"></p>
+ </form>
+</div></section>
+
 <section id="contact" style="padding-top:0"><div class="wrap">
  <div class="final rv">
   <h2>Ready for a bang? Bring Fabula Spark to your school</h2>
